@@ -5,22 +5,36 @@ import pat.function.Position;
 
 public class Character {
 
-    int speed;
-    Position position;
-    private String representation;
-    
-    int movementLevel;
+    private Position position;
+    private char representation;
+
+    private int speed;
+    private int movementLevel;
 
     public final static int NORTH = 0, WEST = 1, SOUTH = 2, EAST = 3;
 
-    public Character(String representation, int speed, int movementLevel){
+    Character(char representation, int speed, int movementLevel){
         this.representation = representation;
         this.speed = speed;
         this.movementLevel = movementLevel;
     }
 
-    public Character(Position position){
+    Character(Position position){
+        representation = ' ';
         this.position = position;
+    }
+
+    Character(Position position, char representation){
+        this.representation = representation;
+        this.position = position;
+    }
+
+    public Position hasPosition(){
+        return position;
+    }
+
+    public char getRepresentation(){
+        return representation;
     }
 
     public void move(int direction, Terminal terminal){

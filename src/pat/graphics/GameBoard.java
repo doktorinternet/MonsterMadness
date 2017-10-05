@@ -56,14 +56,17 @@ public class GameBoard {
         }
     }
 
-    static void drawCharacter(int x, int y){
-        terminal.moveCursor(x, y);
-        terminal.putCharacter('O');
-        //paint(x, y, WHITE);
+    static void drawCharacter(Character actor){
+        Position position = actor.hasPosition();
+        terminal.moveCursor(position.x, position.y);
+        if(actor.getRepresentation() != ' ') terminal.putCharacter(actor.getRepresentation());
+        else {
+            System.out.println("Error, no presentation in actor");
+            System.exit(0);
+        }
         terminal.moveCursor(0, 0);
-
-
     }
+
 
     private static void paint(int x, int y, int color){
         terminal.moveCursor(x,y);
@@ -82,10 +85,15 @@ public class GameBoard {
 
     private static void drawTerminal(){
         Player player = new Player(playerPosition);
-        drawCharacter(xCells/2, yCells/2);
+        drawCharacter(player);
         Monster m1 = new Monster (m1Position);
-        drawCharacter(xCells/8, yCells/8);
+        drawCharacter(m1);
 
+        /*
+            Använd nu detta metodanrop för att rita karaktären istället
+            drawCharacter(monster eller player);
+            kommer dock avsluta programmet ifall
+        */
         //terminal.clearScreen();
         while(true) {
 
