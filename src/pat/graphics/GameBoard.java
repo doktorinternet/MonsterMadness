@@ -23,10 +23,10 @@ public class GameBoard {
     //private static int[][] board = new int[xCells][yCells];
     private static final int WHITE = 0;
     private static Position playerPosition = new Position(xCells/2, yCells/2);
-    private static Position m1Position = new Position(xCells/8, yCells/8); //Vänster-ner
-    private static Position m2Position = new Position((xCells/4) * 3, yCells/8); //
-    private static Position m3Position = new Position(xCells/8, yCells/8);
-    private static Position m4Position = new Position(xCells/8, yCells/8);
+    private static Position m1Position = new Position((xCells/10)*9, (yCells/10)*9); //Vänster-ner
+    private static Position m2Position = new Position((xCells/10)*9, (yCells/10)); //Vänster -upp
+    private static Position m3Position = new Position(xCells/10, yCells/10); //Höger -upp
+    private static Position m4Position = new Position(xCells/10, (yCells/10)*9);//Höger ner
 
 
     public static void run() { // Gör till main
@@ -91,6 +91,12 @@ public class GameBoard {
         drawCharacter(player);
         Monster m1 = new Monster (m1Position);
         drawCharacter(m1);
+        Monster m2 = new Monster (m2Position);
+        drawCharacter(m2);
+        Monster m3 = new Monster (m3Position);
+        drawCharacter(m3);
+        Monster m4 = new Monster (m4Position);
+        drawCharacter(m4);
 
         /*
             Använd nu detta metodanrop för att rita karaktären istället
