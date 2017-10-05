@@ -17,35 +17,38 @@ public class Monster extends Character{
         super(position, representation);
     }
 
-    /*void setPosition(int x){
-        this.getPosition().x = x;
+    void setPosition(int x, int y){
+        position.x = x;
+        position.y = y;
     }
-
-    void setPosition(int y){
-        this.getPosition().y = y;
-    }*/
 
     public void move(Position player, Terminal terminal){
         Position monster = getPosition();
-        Position oldMonster = new Position(monster);
-        if(player.x > monster.x)
-            monster.x += 1;
-        else monster.x -= 1;
+        int x = monster.x, y = monster.y;
 
-        if(player.y > monster.y)
-            monster.y += 1;
-        else monster.y -= 1;
+        if(player.x > monster.x){
+            x += 1;
+        }
+        else if(player.x < monster.x) {
+            x -= 1;
+        }
+        else if(player.x == monster.x){}
 
-        terminal.moveCursor(monster.x, monster.y);
+        if(player.y > monster.y){
+            y += 1;
+        }
+        else if(player.y < monster.y) {
+            y -= 1;
+        }
+        else if(player.y == monster.y){}
+
+        terminal.moveCursor(x, y);
         terminal.putCharacter(getRepresentation());
         terminal.moveCursor(0,0);
 
         // remove last position
         removeLastPosition(terminal);
 
-        //  set new position
-        //position = new Position(position.x, position.y-1);
-
+        setPosition(x, y);
     }
-
 }

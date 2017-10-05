@@ -5,7 +5,7 @@ import pat.function.Position;
 
 public class Character {
 
-    private Position position;
+    public Position position;
     private char representation;
 
     private int speed;
@@ -18,11 +18,11 @@ public class Character {
         this.speed = speed;
         this.movementLevel = movementLevel;
     }
-
+/*
     Character(Position position){
         representation = ' ';
         this.position = position;
-    }
+    }*/
 
     Character(Position position, char representation){
         this.representation = representation;

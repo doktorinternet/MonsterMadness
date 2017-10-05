@@ -12,8 +12,8 @@ public class Player extends Character{
         super(position, 'O');
     }
 
-    public Player(Position position, char representation){
+    /*public Player(Position position, char representation){
         super(position, representation);
-    }
+    }*/
 
 }
