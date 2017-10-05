@@ -1,1 +1,5 @@
 vcs.xml
+workspace.xml
+
+*.class
+
