@@ -23,7 +23,10 @@ public class GameBoard {
     //private static int[][] board = new int[xCells][yCells];
     private static final int WHITE = 0;
     private static Position playerPosition = new Position(xCells/2, yCells/2);
-    private static Position m1Position = new Position(xCells/8, yCells/8);
+    private static Position m1Position = new Position(xCells/8, yCells/8); //Vänster-ner
+    private static Position m2Position = new Position((xCells/4) * 3, yCells/8); //
+    private static Position m3Position = new Position(xCells/8, yCells/8);
+    private static Position m4Position = new Position(xCells/8, yCells/8);
 
 
     public static void run() { // Gör till main
