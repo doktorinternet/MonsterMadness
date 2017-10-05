@@ -53,7 +53,6 @@ public class GameBoard {
         }
     }
 
-
     static void drawCharacter(int x, int y){
         terminal.moveCursor(x, y);
         terminal.putCharacter('O');

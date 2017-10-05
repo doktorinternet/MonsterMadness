@@ -8,6 +8,7 @@ public class Character {
     int speed;
     Position position;
     private String representation;
+
     int movementLevel;
 
     public final static int NORTH = 0, WEST = 1, SOUTH = 2, EAST = 3;
