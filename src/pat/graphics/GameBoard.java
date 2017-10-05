@@ -5,6 +5,7 @@ import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.terminal.Terminal;
 import pat.actors.Character;
+import pat.actors.Monster;
 import pat.actors.Player;
 import pat.function.Position;
 
@@ -22,6 +23,8 @@ public class GameBoard {
     //private static int[][] board = new int[xCells][yCells];
     private static final int WHITE = 0;
     private static Position playerPosition = new Position(xCells/2, yCells/2);
+    private static Position m1Position = new Position(xCells/8, yCells/8);
+
 
     public static void run() { // Gör till main
         terminal.enterPrivateMode();
@@ -80,6 +83,9 @@ public class GameBoard {
     private static void drawTerminal(){
         Player player = new Player(playerPosition);
         drawCharacter(xCells/2, yCells/2);
+        Monster m1 = new Monster (m1Position);
+        drawCharacter(xCells/8, yCells/8);
+
         //terminal.clearScreen();
         while(true) {
 
