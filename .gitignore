@@ -1,6 +1,7 @@
 vcs.xml
 workspace.xml
 .idea/workspace.xml
+out/
 
 *.class
 

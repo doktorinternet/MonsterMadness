@@ -60,7 +60,7 @@ public class GameBoard {
     }
 
     static void drawCharacter(Character actor){
-        Position position = actor.hasPosition();
+        Position position = actor.getPosition();
         terminal.moveCursor(position.x, position.y);
         if(actor.getRepresentation() != ' ') terminal.putCharacter(actor.getRepresentation());
         else {
@@ -89,6 +89,7 @@ public class GameBoard {
     private static void drawTerminal(){
         Player player = new Player(playerPosition);
         drawCharacter(player);
+
         Monster m1 = new Monster (m1Position);
         drawCharacter(m1);
         Monster m2 = new Monster (m2Position);
@@ -98,21 +99,14 @@ public class GameBoard {
         Monster m4 = new Monster (m4Position);
         drawCharacter(m4);
 
+        Monster[] monsters = new Monster[]{m1,m2,m3,m4};
+
         /*
             Använd nu detta metodanrop för att rita karaktären istället
             drawCharacter(monster eller player);
             kommer dock avsluta programmet ifall
         */
-        //terminal.clearScreen();
         while(true) {
-
-            //drawGrid();
-
-            // Formula to take the average value of the current cell
-            // and all of its neighbors
-
-            //Wait for a key to be pressed
-
             Key key;
             do{
                 try{
@@ -152,49 +146,11 @@ public class GameBoard {
                     System.out.println("No key bound");
 
             }
+            for (Monster m : monsters){
+                m.move(player.getPosition(), terminal);
+            }
 
             System.out.println(key.getCharacter());
         }
     }
 }
-
-/*
-    private static void drawGrid() {
-
-        for(int i = 0; i<(xCells*2); i++){
-            int x = rand.nextInt(xCells);
-            int y = rand.nextInt(yCells);
-            board[x][y] = rand.nextInt(256);
-        }
-
-        for (int xAxis = 0; xAxis < xCells; xAxis++) {
-            for (int yAxis = 0; yAxis < yCells; yAxis++) {
-                terminal.moveCursor(xAxis,yAxis);
-                terminal.applyForegroundColor(board[xAxis][yAxis]);
-                terminal.putCharacter('\u2588');
-            }
-        }
-    }
-
-    public static void m(){
-
-     [][] tmpboard = new int[xCells][yCells];
-            for (int y = 1; y < yCells-1; y++) {
-        for (int x = 1; x < xCells-1; x++) {
-        int color = 0;
-                        color += board[x - 1][y - 1]; //
-                       color += board[x + 1][y - 1];
-                        color += board[x ][y - 1];
-                        color += board[x - 1][y];
-        color += board[x ][y];
-                       color += board[x + 1][y];
-                        color += board[x ][y + 1];
-                        color += board[x - 1][y + 1];
-                        color += board[x + 1][y + 1];
-        if(color>0) color /= 9;
-        tmpboard[x][y] = color;
-        }
-        }
-        board = tmpboard;
-
-    }*/

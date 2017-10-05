@@ -29,7 +29,7 @@ public class Character {
         this.position = position;
     }
 
-    public Position hasPosition(){
+    public Position getPosition(){
         return position;
     }
 
@@ -97,12 +97,11 @@ public class Character {
         position = new Position(position.x+1, position.y);
     }
 
-    private void removeLastPosition(Terminal terminal){
+    void removeLastPosition(Terminal terminal){
         // remove last position
         terminal.moveCursor(position.x, position.y);
         terminal.putCharacter(' ');
         terminal.moveCursor(0,0);
-
     }
 
 }
