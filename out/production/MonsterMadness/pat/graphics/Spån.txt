@@ -1,0 +1,36 @@
+Lite regler
+
+(characterklass?)
+
+Monster
+Måste gå mot spelare
+Får inte stå på samma plats/krocka/angränsa varann
+    - Om samma plats, ställ bredvid varann?
+    - Gör flera?
+Tar en begränsad mängd platser (1)
+Får gå i diagonala riktingar(?)
+Får gå ett eller flera steg
+
+Spelare
+Får gå enligt pilknappar, upp ner höger vänster
+Får gå ett eller flera steg
+Får inte passera spelbrädets storlek
+
+Spelbräde
+Skall ha en färg
+SKall ha en ram i färg som skiljer sig mot ovan
+Skall ha en bestämd storlek
+Bestämd position i temerinalen
+Räknar antalet steg?
+Håller koll på karaktärers positioner?
+Start/slutskärm
+
+Hjälpklass logik
+Knapptryck
+Ljud?
+Tid/drag/räknare/mätning
+
+Position
+Håller x och y koordinater för karaktärer
+
+
