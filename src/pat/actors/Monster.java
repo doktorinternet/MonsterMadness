@@ -22,25 +22,26 @@ public class Monster extends Character{
         position.y = y;
     }
 
-    public void move(Position player, Terminal terminal){
+    public void move(Player player, Terminal terminal){
+        Position playerPosition = player.getPosition();
         Position monster = getPosition();
         int x = monster.x, y = monster.y;
 
-        if(player.x > monster.x){
+        if(playerPosition.x > monster.x){
             x += 1;
         }
-        else if(player.x < monster.x) {
+        else if(playerPosition.x < monster.x) {
             x -= 1;
         }
-        else if(player.x == monster.x){}
+        else if(playerPosition.x == monster.x){}
 
-        if(player.y > monster.y){
+        if(playerPosition.y > monster.y){
             y += 1;
         }
-        else if(player.y < monster.y) {
+        else if(playerPosition.y < monster.y) {
             y -= 1;
         }
-        else if(player.y == monster.y){}
+        else if(playerPosition.y == monster.y){}
 
         terminal.moveCursor(x, y);
         terminal.putCharacter(getRepresentation());
@@ -50,5 +51,9 @@ public class Monster extends Character{
         removeLastPosition(terminal);
 
         setPosition(x, y);
+        if(getPosition().x == playerPosition.x && getPosition().y == playerPosition.y){
+            terminal.clearScreen();
+            player.dies();
+        }
     }
 }

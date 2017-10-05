@@ -70,6 +70,19 @@ public class GameBoard {
         terminal.moveCursor(0, 0);
     }
 
+    public static void drawString(String s){
+        int startX = (xCells/2)-4, startY = yCells/2;
+        char [] gameOver = s.toCharArray();
+        terminal.clearScreen();
+
+        for(int i = 0; i < gameOver.length; i++){
+            terminal.moveCursor(startX + i, startY);
+            terminal.putCharacter(gameOver[i]);
+        }
+        terminal.moveCursor(0, 0);
+
+    }
+
 
     private static void paint(int x, int y, int color){
         terminal.moveCursor(x,y);
@@ -147,7 +160,7 @@ public class GameBoard {
 
             }
             for (Monster m : monsters){
-                m.move(player.getPosition(), terminal);
+                m.move(player, terminal);
             }
 
             System.out.println(key.getCharacter());

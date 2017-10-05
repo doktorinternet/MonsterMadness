@@ -1,6 +1,7 @@
 package pat.actors;
 
 import pat.function.Position;
+import pat.graphics.GameBoard;
 
 public class Player extends Character{
 
@@ -15,5 +16,10 @@ public class Player extends Character{
     /*public Player(Position position, char representation){
         super(position, representation);
     }*/
+
+    void dies(){
+        String gameOver = "Game over";
+        GameBoard.drawString(gameOver);
+    }
 
 }
